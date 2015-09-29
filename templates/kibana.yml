@@ -34,7 +34,7 @@ shard_timeout: <%= scope['kibana::shard_timeout'] %>
 # certificate.
 verify_ssl: <%= scope['kibana::verify_ssl'] %>
 
-<% if scope['kibana::ca'] then -%>ca: <%= %= scope['kibana::ca'] -%> 
+<% if scope['kibana::ca'] then -%>ca: <%= scope['kibana::ca'] -%> 
 <% end -%>
 <% if scope['kibana::ssl_key_file'] then -%>ssl_key_file: <%= scope['kibana::ssl_key_file'] -%>
 <% end -%>
