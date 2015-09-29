@@ -1,0 +1,34 @@
+{
+	"name": "optymyzepuppet-kibana",
+	"version": "2.2.0",
+	"author": "Falcas Cristian",
+	"license": "optymyze",
+	"project_page": "https://v-git-op-01.optymyze.net/pp_management/kibana",
+	"source": "git@v-git-op-01.optymyze.net:pp_management/kibana.git",
+	"summary": "Installs and configures Kibana3 from packages.",
+	"dependencies": [
+		{
+			"name": "puppetlabs/stdlib",
+			"version_requirement": "4.x"
+		},
+		{
+			"name": "puppetlabs/firewall",
+			"version_requirement": "1.x"
+		},
+		{
+			"name": "puppetlabs/apache",
+			"version_requirement": "1.x"
+		},
+		{
+			"name": "jfryman/nginx",
+			"version_requirement": "0.x"
+		},
+		{
+			"name": "leinaddm/htpasswd",
+			"version_requirement": "0.x"
+		}
+	],
+	"operatingsystem_support": [],
+	"requirements": [],
+	"tags": []
+}
