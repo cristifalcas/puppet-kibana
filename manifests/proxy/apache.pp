@@ -15,7 +15,6 @@ class kibana::proxy::apache (
   package { 'mod_proxy_html': ensure => present }
 
   if $auth_user and $auth_pass {
-    include ::apache::mod::auth_basic
     $auth_basic = 'Basic'
     $auth_basic_user_file = "${::apache::httpd_dir}/kibana.htpasswd"
 
