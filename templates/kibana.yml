@@ -34,15 +34,15 @@ shard_timeout: <%= scope['kibana::shard_timeout'] %>
 # certificate.
 verify_ssl: <%= scope['kibana::verify_ssl'] %>
 
-<% if scope['kibana::ca'] then -%>ca: <%= scope['kibana::ca'] -%> 
+<% if scope['kibana::ca'] then -%>ca: <%= scope['kibana::ca'] %>
 <% end -%>
-<% if scope['kibana::ssl_key_file'] then -%>ssl_key_file: <%= scope['kibana::ssl_key_file'] -%>
+<% if scope['kibana::ssl_key_file'] then -%>ssl_key_file: <%= scope['kibana::ssl_key_file'] %>
 <% end -%>
-<% if scope['kibana::ssl_cert_file'] then -%>ssl_cert_file: <%= scope['kibana::ssl_cert_file'] -%>
+<% if scope['kibana::ssl_cert_file'] then -%>ssl_cert_file: <%= scope['kibana::ssl_cert_file'] %>
 <% end -%>
 
-#
-pid_file: <%= scope['kibana::pid_file'] %>
+# this is currently managed frm the init script
+#pid_file: <%= scope['kibana::pid_file'] %>
 
 #
 log_file: <%= scope['kibana::log_file'] %>

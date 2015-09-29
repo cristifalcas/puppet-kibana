@@ -18,6 +18,8 @@ user=$prog
 
 touch $STARTUP_LOG
 chown $user $STARTUP_LOG
+chown $user $pidfile
+chown $user $lockfile
 
 start() {
 	[ -x $exec ] || exit 5

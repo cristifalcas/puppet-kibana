@@ -6,18 +6,18 @@ class kibana::proxy::nginx (
   $ssl_ca     = $kibana::ca,
   $auth_user  = undef,
   $auth_pass  = undef,
-  #
-  ) {
+) {
   include ::nginx
   $proxy = 'kibana'
 
   if $auth_user and $auth_pass {
-    htpasswd { $auth_user:
-      cryptpasswd => ht_sha1($auth_pass),
-      target      => "${::nginx::config::conf_dir}/kibana.htpasswd",
-    }
     $auth_basic = 'Restricted'
     $auth_basic_user_file = "${::nginx::config::conf_dir}/kibana.htpasswd"
+
+    htpasswd { $auth_user:
+      cryptpasswd => ht_sha1($auth_pass),
+      target      => $auth_basic_user_file,
+    }
   } else {
     $auth_basic = 'off'
     $auth_basic_user_file = undef

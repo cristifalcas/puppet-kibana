@@ -15,7 +15,8 @@ You can easily perform advanced data analysis and visualize your data in a varie
 
 ## Usage
 
-      # in order for this configuration to work you will need to allow users kibana and apache acccess to puppet certificates
+      # in order for this configuration to work you will need to allow users kibana
+      # and apache acccess to puppet certificates
 	  class { 'kibana':
 	    ca            => "${::settings::ssldir}/certs/ca.pem",
 	    ssl_cert_file => "${::settings::ssldir}/certs/${::clientcert}.pem",
