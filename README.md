@@ -15,10 +15,18 @@ You can easily perform advanced data analysis and visualize your data in a varie
 
 ## Usage
 
+      # in order for this configuration to work you will need to allow users kibana and apache acccess to puppet certificates
 	  class { 'kibana':
-	    ca            => '/etc/pki/puppet_certs/kibana/ca_cert.pem',
-	    ssl_cert_file => '/etc/pki/puppet_certs/kibana/public_cert.pem',
-	    ssl_key_file  => '/etc/pki/puppet_certs/kibana/private_cert.pem',
+	    ca            => "${::settings::ssldir}/certs/ca.pem",
+	    ssl_cert_file => "${::settings::ssldir}/certs/${::clientcert}.pem",
+	    ssl_key_file  => "${::settings::ssldir}/private_keys/${::clientcert}.pem",
+	  }
+
+	  class { 'kibana::proxy::apache':
+	    ssl_port => 8443,
+	    ssl_ca   => "${::settings::ssldir}/certs/ca.pem",
+	    ssl_cert => "${::settings::ssldir}/certs/${::clientcert}.pem",
+	    ssl_key  => "${::settings::ssldir}/private_keys/${::clientcert}.pem",
 	  }
 
 
