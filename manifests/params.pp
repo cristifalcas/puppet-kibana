@@ -2,7 +2,6 @@ class kibana::params {
   $ensure                      = 'present'
   $port                        = 5601
   $host                        = '127.0.0.1'
-  $ssl_port                    = 443
   $elasticsearch_url           = 'http://localhost:9200'
   $elasticsearch_preserve_host = true
   $kibana_index                = '.kibana'
