@@ -7,7 +7,6 @@
 2. [Usage - Configuration options and additional functionality](#usage)
 3. [Development - Guide for contributing to the module](#development)
 
-
 ## Overview
 
 Kibana is an open source analytics and visualization platform designed to work with Elasticsearch.
