@@ -36,6 +36,7 @@ class kibana::proxy::apache (
         'path' => '/',
         'url'  => "https://${kibana::host}:${kibana::port}/"
       }
+      ,
       ],
     ssl_proxyengine     => true,
     ssl                 => true,
