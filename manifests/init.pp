@@ -135,8 +135,9 @@ class kibana (
   $logging_quiet                = $kibana::params::logging_quiet,
   $logging_verbose              = $kibana::params::logging_verbose,
 ) inherits kibana::params {
-  validate_bool($elasticsearch_preserveHost, $server_ssl_enable, $elasticsearch_ssl_enable, $elasticsearch_ssl_verify, 
-  $logging_silent, $logging_quiet, $logging_verbose)
+  validate_bool($elasticsearch_preserveHost, $server_ssl_enable)
+  validate_bool($elasticsearch_ssl_enable, $elasticsearch_ssl_verify)
+  validate_bool($logging_silent, $logging_quiet, $logging_verbose)
 
   validate_integer([
     $server_port,
