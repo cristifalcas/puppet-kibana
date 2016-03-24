@@ -1,0 +1,89 @@
+# Kibana is served by a back end server. This setting specifies the port to use.
+server.port: <%= scope['kibana::server_port'] %>
+
+# This setting specifies the IP address of the back end server.
+server.host: "<%= scope['kibana::server_host'] -%>"
+
+# Enables you to specify a path to mount Kibana at if you are running behind a proxy. This setting
+# cannot end in a slash.
+server.basePath: "<%= scope['kibana::server_basePath'] -%>"
+
+# The maximum payload size in bytes for incoming server requests.
+server.maxPayloadBytes: <%= scope['kibana::server_maxPayloadBytes'] %>
+
+# The URL of the Elasticsearch instance to use for all your queries.
+elasticsearch.url: "<%= scope['kibana::elasticsearch_url'] -%>"
+
+# When this setting’s value is true Kibana uses the hostname specified in the server.host
+# setting. When the value of this setting is false, Kibana uses the hostname of the host
+# that connects to this Kibana instance.
+elasticsearch.preserveHost: <%= scope['kibana::elasticsearch_preserveHost'] %>
+
+# Kibana uses an index in Elasticsearch to store saved searches, visualizations and 
+# dashboards. Kibana creates a new index if the index doesn’t already exist.
+kibana.index: "<%= scope['kibana::kibana_index'] -%>"
+
+# The default application to load.
+kibana.defaultAppId: "<%= scope['kibana::kibana_defaultAppId'] -%>"
+
+# If your Elasticsearch is protected with basic authentication, these settings provide
+# the username and password that the Kibana server uses to perform maintenance on the Kibana
+# index at startup. Your Kibana users still need to authenticate with Elasticsearch, which 
+# is proxied through the Kibana server.
+<% unless [nil, :undefined, :undef].include?(scope['kibana::elasticsearch_username']) -%>
+elasticsearch.username: "<%= scope['kibana::elasticsearch_username'] -%>"
+<% end -%>
+<% unless [nil, :undefined, :undef].include?(scope['kibana::elasticsearch_password']) -%>
+elasticsearch.password: "<%= scope['kibana::elasticsearch_password'] -%>"
+<% end -%>
+
+<% if scope['kibana::server_ssl_enable'] -%>
+# Paths to the PEM-format SSL certificate and SSL key files, respectively. These 
+# files enable SSL for outgoing requests from the Kibana server to the browser.
+server.ssl.cert: <%= scope['kibana::server_ssl_cert'] %>
+server.ssl.key: <%= scope['kibana::server_ssl_key'] %>
+<% end -%>
+
+<% if scope['kibana::elasticsearch_ssl_enable'] -%>
+# Optional settings that provide the paths to the PEM-format SSL certificate and key files.
+# These files validate that your Elasticsearch backend uses the same key files.
+elasticsearch.ssl.cert: <%= scope['kibana::elasticsearch_ssl_cert'] %>
+elasticsearch.ssl.key: <%= scope['kibana::elasticsearch_ssl_key'] %>
+
+# Optional setting that enables you to specify a path to the PEM file for the certificate 
+# authority for your Elasticsearch instance.
+elasticsearch.ssl.ca: <%= scope['kibana::elasticsearch_ssl_ca'] %>
+
+# To disregard the validity of SSL certificates, change this setting’s value to false.
+elasticsearch.ssl.verify: <%= scope['kibana::elasticsearch_ssl_verify'] %>
+<% end -%>
+
+# Time in milliseconds to wait for Elasticsearch to respond to pings. Defaults to the value of
+# the elasticsearch.requestTimeout setting.
+elasticsearch.pingTimeout: <%= scope['kibana::elasticsearch_pingTimeout'] %>
+
+# Time in milliseconds to wait for responses from the back end or Elasticsearch. This value 
+# must be a positive integer.
+elasticsearch.requestTimeout: <%= scope['kibana::elasticsearch_requestTimeout'] %>
+
+# Time in milliseconds for Elasticsearch to wait for responses from shards. Set to 0 to disable.
+elasticsearch.shardTimeout: <%= scope['kibana::elasticsearch_shardTimeout'] %>
+
+# Time in milliseconds to wait for Elasticsearch at Kibana startup before retrying.
+elasticsearch.startupTimeout: <%= scope['kibana::elasticsearch_startupTimeout'] %>
+
+# Specifies the path where Kibana creates the process ID file.
+pid.file: <%= scope['kibana::pid_file'] %>
+
+# Enables you specify a file where Kibana stores log output.
+logging.dest: <%= scope['kibana::logging_dest'] %>
+
+# Set the value of this setting to true to suppress all logging output.
+logging.silent: <%= scope['kibana::logging_silent'] %>
+
+# Set the value of this setting to true to suppress all logging output other than error messages.
+logging.quiet: <%= scope['kibana::logging_quiet'] %>
+
+# Set the value of this setting to true to log all events, including system usage information 
+# and all requests.
+logging.verbose: <%= scope['kibana::logging_verbose'] %>

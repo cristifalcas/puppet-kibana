@@ -1,9 +1,8 @@
 class kibana::proxy::nginx (
   $servername = $::fqdn,
   $ssl_port   = 443,
-  $ssl_cert   = $kibana::ssl_cert_file,
-  $ssl_key    = $kibana::ssl_key_file,
-  $ssl_ca     = $kibana::ca,
+  $ssl_cert   = $kibana::server_ssl_cert,
+  $ssl_key    = $kibana::server_ssl_key,
   $auth_user  = undef,
   $auth_pass  = undef,
 ) {
@@ -46,5 +45,5 @@ class kibana::proxy::nginx (
     auth_basic_user_file => $auth_basic_user_file,
   }
 
-  nginx::resource::upstream { $proxy: members => ["localhost:${kibana::port}",], }
+  nginx::resource::upstream { $proxy: members => ["localhost:${kibana::server_port}",], }
 }

@@ -1,4 +1,5 @@
 # kibana
+
 [![Build Status](https://travis-ci.org/cristifalcas/puppet-kibana.png?branch=master)](https://travis-ci.org/cristifalcas/puppet-kibana)
 
 #### Table of Contents
@@ -13,19 +14,23 @@ Kibana is an open source analytics and visualization platform designed to work w
 You use Kibana to search, view, and interact with data stored in Elasticsearch indices.
 You can easily perform advanced data analysis and visualize your data in a variety of charts, tables, and maps.
 
+This module is for kibana 4.4
+
 ## Usage
 
-      # in order for this configuration to work you will need to allow users kibana
+      include ::kibana
+
+
+      # in order for the following configuration to work you will need to allow users kibana
       # and apache acccess to puppet certificates
 	  class { 'kibana':
-	    ca            => "${::settings::ssldir}/certs/ca.pem",
-	    ssl_cert_file => "${::settings::ssldir}/certs/${::clientcert}.pem",
-	    ssl_key_file  => "${::settings::ssldir}/private_keys/${::clientcert}.pem",
+	    server_ssl_enable => true,
+	    server_ssl_cert   => "${::settings::ssldir}/certs/${::clientcert}.pem",
+	    server_ssl_key    => "${::settings::ssldir}/private_keys/${::clientcert}.pem",
 	  }
 
 	  class { 'kibana::proxy::apache':
 	    ssl_port => 8443,
-	    ssl_ca   => "${::settings::ssldir}/certs/ca.pem",
 	    ssl_cert => "${::settings::ssldir}/certs/${::clientcert}.pem",
 	    ssl_key  => "${::settings::ssldir}/private_keys/${::clientcert}.pem",
 	  }

@@ -1,9 +1,8 @@
 class kibana::proxy::apache (
   $servername      = $::fqdn,
   $ssl_port        = 443,
-  $ssl_cert        = $kibana::ssl_cert_file,
-  $ssl_key         = $kibana::ssl_key_file,
-  $ssl_ca          = $kibana::ca,
+  $ssl_cert        = $kibana::server_ssl_cert,
+  $ssl_key         = $kibana::server_ssl_key,
   $es_root_path    = '/_elastic',
   $custom_fragment = '',
 ) {
@@ -34,7 +33,7 @@ class kibana::proxy::apache (
       ,
       {
         'path' => '/',
-        'url'  => "https://${kibana::host}:${kibana::port}/"
+        'url'  => "https://${kibana::server_host}:${kibana::server_port}/"
       }
       ,
       ],
@@ -42,7 +41,6 @@ class kibana::proxy::apache (
     ssl                 => true,
     ssl_cert            => $ssl_cert,
     ssl_key             => $ssl_key,
-    ssl_ca              => $ssl_ca,
     custom_fragment     => $custom_fragment,
   }
 }
