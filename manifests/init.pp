@@ -30,13 +30,13 @@
 # $elasticsearch_url::            The URL of the Elasticsearch instance to use for all your queries.
 #                                 Default: "http://localhost:9200"
 #
-# $elasticsearch_preserveHost::   When this setting’s value is true Kibana uses the hostname specified in the server.host setting.
+# $elasticsearch_preserveHost::   When this setting's value is true Kibana uses the hostname specified in the server.host setting.
 #                                 When the value of this setting is false, Kibana uses the hostname of the host that connects to
 #                                 this Kibana instance.
 #                                 Default: true
 #
 # $kibana_index::                 Kibana uses an index in Elasticsearch to store saved searches, visualizations and dashboards.
-#                                 Kibana creates a new index if the index doesn’t already exist.
+#                                 Kibana creates a new index if the index doesn't already exist.
 #                                 Default: ".kibana"
 #
 # $kibana_defaultAppId::          The default application to load.
