@@ -1,12 +1,15 @@
 {
 	"name": "cristifalcas-kibana",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"author": "Falcas Cristian",
 	"license": "Apache-2.0",
 	"project_page": "https://github.com/cristifalcas/puppet-kibana",
 	"source": "git@github.com:cristifalcas/puppet-kibana.git",
 	"issues_url": "https://github.com/cristifalcas/puppet-kibana/issues",
 	"summary": "Installs and configures Kibana4 from packages.",
+	"tags": [ "kibana",
+		"elasticsearch"
+	],
 	"dependencies": [{
 			"name": "puppetlabs/stdlib",
 			"version_requirement": "4.x"
@@ -21,9 +24,34 @@
 			"version_requirement": "0.x"
 		}
 	],
-	"operatingsystem_support": [],
-	"requirements": [],
-	"tags": [ "kibana",
-		"elasticsearch"
+	"requirements": [{
+			"name": "pe",
+			"version_requirement": "3.x"
+		},{
+			"name": "puppet",
+			"version_requirement": ">=3.4.0 <5.0.0"
+		}
+	],
+	"operatingsystem_support": [{
+			"operatingsystem": "RedHat",
+			"operatingsystemrelease": [ "6",
+				"7"
+			]
+		},{
+			"operatingsystem": "CentOS",
+			"operatingsystemrelease": [ "6",
+				"7"
+			]
+		},{
+			"operatingsystem": "OracleLinux",
+			"operatingsystemrelease": [ "6",
+				"7"
+			]
+		},{
+			"operatingsystem": "Scientific",
+			"operatingsystemrelease": [ "6",
+				"7"
+			]
+		}
 	]
 }

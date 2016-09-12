@@ -150,9 +150,9 @@ class kibana (
     fail('Both $elasticsearch_username and $elasticsearch_password must be defined or undefined')
   }
 
-  contain kibana::install
-  contain kibana::config
-  contain kibana::service
+  contain '::kibana::install'
+  contain '::kibana::config'
+  contain '::kibana::service'
 
   Class['kibana::install'] ->
   Class['kibana::config'] ~>

@@ -19,4 +19,3 @@ gem 'rspec-puppet-facts'
 gem 'metadata-json-lint'
 gem 'rspec', '< 3.2.0', {"platforms"=>["ruby_18"]}
 gem 'json'
-
