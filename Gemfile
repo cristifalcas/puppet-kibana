@@ -13,9 +13,10 @@ gem 'puppet-lint-undef_in_function-check'
 gem 'puppet-lint-leading_zero-check'
 gem 'puppet-lint-trailing_comma-check'
 gem 'puppet-lint-file_ensure-check'
+gem 'puppet-lint-variable_contains_upcase'
 gem 'simplecov'
 gem 'rspec-puppet-facts'
 gem 'metadata-json-lint'
 gem 'rspec', '< 3.2.0', {"platforms"=>["ruby_18"]}
-gem 'json', '~> 1.0', {"platforms"=>["ruby_18", "ruby_19"], "groups"=>["test"]}
-gem 'json_pure', '~> 1.0', {"platforms"=>["ruby_18", "ruby_19"], "groups"=>["test"]}
+gem 'json', '~> 1.0', {"platforms"=>["ruby_18", "ruby_19"]}
+gem 'json_pure', '~> 1.0', {"platforms"=>["ruby_18", "ruby_19"]}

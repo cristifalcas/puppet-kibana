@@ -6,10 +6,10 @@ server.host: "<%= scope['kibana::server_host'] -%>"
 
 # Enables you to specify a path to mount Kibana at if you are running behind a proxy. This setting
 # cannot end in a slash.
-server.basePath: "<%= scope['kibana::server_basePath'] -%>"
+server.basePath: "<%= scope['kibana::server_base_path'] -%>"
 
 # The maximum payload size in bytes for incoming server requests.
-server.maxPayloadBytes: <%= scope['kibana::server_maxPayloadBytes'] %>
+server.maxPayloadBytes: <%= scope['kibana::server_max_payload_bBytes'] %>
 
 # The URL of the Elasticsearch instance to use for all your queries.
 elasticsearch.url: "<%= scope['kibana::elasticsearch_url'] -%>"
@@ -17,14 +17,14 @@ elasticsearch.url: "<%= scope['kibana::elasticsearch_url'] -%>"
 # When this setting’s value is true Kibana uses the hostname specified in the server.host
 # setting. When the value of this setting is false, Kibana uses the hostname of the host
 # that connects to this Kibana instance.
-elasticsearch.preserveHost: <%= scope['kibana::elasticsearch_preserveHost'] %>
+elasticsearch.preserveHost: <%= scope['kibana::elasticsearch_preserve_host'] %>
 
 # Kibana uses an index in Elasticsearch to store saved searches, visualizations and 
 # dashboards. Kibana creates a new index if the index doesn’t already exist.
 kibana.index: "<%= scope['kibana::kibana_index'] -%>"
 
 # The default application to load.
-kibana.defaultAppId: "<%= scope['kibana::kibana_defaultAppId'] -%>"
+kibana.defaultAppId: "<%= scope['kibana::kibana_default_app_id'] -%>"
 
 # If your Elasticsearch is protected with basic authentication, these settings provide
 # the username and password that the Kibana server uses to perform maintenance on the Kibana
@@ -60,17 +60,17 @@ elasticsearch.ssl.verify: <%= scope['kibana::elasticsearch_ssl_verify'] %>
 
 # Time in milliseconds to wait for Elasticsearch to respond to pings. Defaults to the value of
 # the elasticsearch.requestTimeout setting.
-elasticsearch.pingTimeout: <%= scope['kibana::elasticsearch_pingTimeout'] %>
+elasticsearch.pingTimeout: <%= scope['kibana::elasticsearch_ping_timeout'] %>
 
 # Time in milliseconds to wait for responses from the back end or Elasticsearch. This value 
 # must be a positive integer.
-elasticsearch.requestTimeout: <%= scope['kibana::elasticsearch_requestTimeout'] %>
+elasticsearch.requestTimeout: <%= scope['kibana::elasticsearch_request_timeout'] %>
 
 # Time in milliseconds for Elasticsearch to wait for responses from shards. Set to 0 to disable.
 elasticsearch.shardTimeout: <%= scope['kibana::elasticsearch_shardTimeout'] %>
 
 # Time in milliseconds to wait for Elasticsearch at Kibana startup before retrying.
-elasticsearch.startupTimeout: <%= scope['kibana::elasticsearch_startupTimeout'] %>
+elasticsearch.startupTimeout: <%= scope['kibana::elasticsearch_startup_timeout'] %>
 
 # Specifies the path where Kibana creates the process ID file.
 pid.file: <%= scope['kibana::pid_file'] %>

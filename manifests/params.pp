@@ -3,12 +3,12 @@ class kibana::params {
 
   $server_port = 5601
   $server_host = '127.0.0.1'
-  $server_basePath = ''
-  $server_maxPayloadBytes = 1048576
+  $server_base_path = ''
+  $server_max_payload_bytes = 1048576
   $elasticsearch_url = 'http://localhost:9200'
-  $elasticsearch_preserveHost = true
+  $elasticsearch_preserve_host = true
   $kibana_index = '.kibana'
-  $kibana_defaultAppId = 'discover'
+  $kibana_default_app_id = 'discover'
   $elasticsearch_username = undef
   $elasticsearch_password = undef
   $server_ssl_enable = false
@@ -19,10 +19,10 @@ class kibana::params {
   $elasticsearch_ssl_key = "${::settings::ssldir}/private_keys/${::clientcert}.pem"
   $elasticsearch_ssl_ca = "${::settings::ssldir}/certs/ca.pem"
   $elasticsearch_ssl_verify = true
-  $elasticsearch_pingTimeout = 1500
-  $elasticsearch_requestTimeout = 300000
-  $elasticsearch_shardTimeout = 0
-  $elasticsearch_startupTimeout = 5000
+  $elasticsearch_ping_timeout = 1500
+  $elasticsearch_request_timeout = 300000
+  $elasticsearch_shard_timeout = 0
+  $elasticsearch_startup_timeout = 5000
   $pid_file = '/var/run/kibana.pid'
   $logging_dest = 'stdout'
   $logging_silent = false
