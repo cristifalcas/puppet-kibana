@@ -18,3 +18,4 @@ gem 'rspec-puppet-facts'
 gem 'metadata-json-lint'
 gem 'rspec', '< 3.2.0', {"platforms"=>["ruby_18"]}
 gem 'json'
+gem 'json_pure', '<=2.0.1', :require => false if RUBY_VERSION =~ /^1\./
