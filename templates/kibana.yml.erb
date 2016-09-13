@@ -9,7 +9,7 @@ server.host: "<%= scope['kibana::server_host'] -%>"
 server.basePath: "<%= scope['kibana::server_base_path'] -%>"
 
 # The maximum payload size in bytes for incoming server requests.
-server.maxPayloadBytes: <%= scope['kibana::server_max_payload_bBytes'] %>
+server.maxPayloadBytes: <%= scope['kibana::server_max_payload_bytes'] %>
 
 # The URL of the Elasticsearch instance to use for all your queries.
 elasticsearch.url: "<%= scope['kibana::elasticsearch_url'] -%>"
@@ -67,7 +67,7 @@ elasticsearch.pingTimeout: <%= scope['kibana::elasticsearch_ping_timeout'] %>
 elasticsearch.requestTimeout: <%= scope['kibana::elasticsearch_request_timeout'] %>
 
 # Time in milliseconds for Elasticsearch to wait for responses from shards. Set to 0 to disable.
-elasticsearch.shardTimeout: <%= scope['kibana::elasticsearch_shardTimeout'] %>
+elasticsearch.shardTimeout: <%= scope['kibana::elasticsearch_shard_timeout'] %>
 
 # Time in milliseconds to wait for Elasticsearch at Kibana startup before retrying.
 elasticsearch.startupTimeout: <%= scope['kibana::elasticsearch_startup_timeout'] %>
