@@ -1,3 +1,18 @@
+#
+# === Parameters:
+#
+# $servername::             TBD
+#
+# $ssl_port::               TBD
+#
+# $ssl_cert::               TBD
+#
+# $ssl_key::                TBD
+#
+# $auth_user::              TBD
+#
+# $auth_pass::              TBD
+#
 class kibana::proxy::nginx (
   $servername = $::fqdn,
   $ssl_port   = 443,

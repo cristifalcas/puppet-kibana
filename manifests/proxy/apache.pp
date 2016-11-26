@@ -1,3 +1,18 @@
+#
+# === Parameters:
+#
+# $servername::             TBD
+#
+# $ssl_port::               TBD
+#
+# $ssl_cert::               TBD
+#
+# $ssl_key::                TBD
+#
+# $es_root_path::           TBD
+#
+# $custom_fragment::        TBD
+#
 class kibana::proxy::apache (
   $servername      = $::fqdn,
   $ssl_port        = 443,
@@ -36,7 +51,7 @@ class kibana::proxy::apache (
         'url'  => "https://${kibana::server_host}:${kibana::server_port}/"
       }
       ,
-      ],
+    ],
     ssl_proxyengine     => true,
     ssl                 => true,
     ssl_cert            => $ssl_cert,

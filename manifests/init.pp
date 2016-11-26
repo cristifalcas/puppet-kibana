@@ -56,7 +56,7 @@
 #                                  for outgoing requests from the Kibana server to the browser.
 #                                  Default: "${::settings::ssldir}/certs/${::clientcert}.pem"
 #
-# $server_ssl_key::
+# $server_ssl_key::                server_ssl_key
 #                                  Default: "${::settings::ssldir}/private_keys/${::clientcert}.pem"
 #
 # $elasticsearch_ssl_enable::      Enable ssl for elasticsearch
@@ -105,6 +105,10 @@
 #                                  all requests.
 #                                  Default: false
 #
+# $elasticsearch_ssl_cert::        TBD
+#
+# $elasticsearch_ssl_key::        TBD
+#
 class kibana (
   $ensure                        = $kibana::params::ensure,
   $server_port                   = $kibana::params::server_port,
@@ -140,11 +144,12 @@ class kibana (
   validate_bool($logging_silent, $logging_quiet, $logging_verbose)
 
   validate_integer([
-    $server_port,
-    $elasticsearch_ping_timeout,
-    $elasticsearch_request_timeout,
-    $elasticsearch_shard_timeout,
-    $elasticsearch_startup_timeout])
+      $server_port,
+      $elasticsearch_ping_timeout,
+      $elasticsearch_request_timeout,
+      $elasticsearch_shard_timeout,
+      $elasticsearch_startup_timeout,
+  ])
 
   if ($elasticsearch_username and !$elasticsearch_password) or (!$elasticsearch_username and $elasticsearch_password) {
     fail('Both $elasticsearch_username and $elasticsearch_password must be defined or undefined')
