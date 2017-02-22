@@ -14,7 +14,7 @@ Kibana is an open source analytics and visualization platform designed to work w
 You use Kibana to search, view, and interact with data stored in Elasticsearch indices.
 You can easily perform advanced data analysis and visualize your data in a variety of charts, tables, and maps.
 
-This module is for kibana 4.4
+This module is for kibana 5.x
 
 ## Usage
 
