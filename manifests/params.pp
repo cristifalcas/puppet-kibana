@@ -5,6 +5,7 @@ class kibana::params {
   $server_host = '127.0.0.1'
   $server_base_path = ''
   $server_max_payload_bytes = 1048576
+  $server_name = $::fqdn
   $elasticsearch_url = 'http://localhost:9200'
   $elasticsearch_preserve_host = true
   $kibana_index = '.kibana'

@@ -27,6 +27,9 @@
 # $server_max_payload_bytes::      The maximum payload size in bytes for incoming server requests.
 #                                  Default: 1048576
 #
+# $server_name::                   The Kibana server's name.  This is used for display purposes.
+#                                  Default: $::fqdn
+#
 # $elasticsearch_url::             The URL of the Elasticsearch instance to use for all your queries.
 #                                  Default: "http://localhost:9200"
 #
@@ -115,6 +118,7 @@ class kibana (
   $server_host                   = $kibana::params::server_host,
   $server_base_path              = $kibana::params::server_base_path,
   $server_max_payload_bytes      = $kibana::params::server_max_payload_bytes,
+  $server_name                   = $kibana::params::server_name,
   $elasticsearch_url             = $kibana::params::elasticsearch_url,
   $elasticsearch_preserve_host   = $kibana::params::elasticsearch_preserve_host,
   $kibana_index                  = $kibana::params::kibana_index,
