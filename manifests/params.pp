@@ -16,9 +16,9 @@ class kibana::params {
   $server_ssl_cert = "${::settings::ssldir}/certs/${::clientcert}.pem"
   $server_ssl_key = "${::settings::ssldir}/private_keys/${::clientcert}.pem"
   $elasticsearch_ssl_enable = false
-  $elasticsearch_ssl_cert = "${::settings::ssldir}/certs/${::clientcert}.pem"
-  $elasticsearch_ssl_key = "${::settings::ssldir}/private_keys/${::clientcert}.pem"
-  $elasticsearch_ssl_ca = "${::settings::ssldir}/certs/ca.pem"
+  $elasticsearch_ssl_cert = undef
+  $elasticsearch_ssl_key = undef
+  $elasticsearch_ssl_ca = undef
   $elasticsearch_ssl_verify = true
   $elasticsearch_ping_timeout = 1500
   $elasticsearch_request_timeout = 300000
